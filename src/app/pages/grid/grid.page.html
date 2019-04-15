@@ -1,0 +1,35 @@
+<app-header titulo="grid row"></app-header>
+
+<ion-content padding fullscreen>
+
+  <ion-grid>
+
+    <ion-row>
+      <!-- creates 12 columns puts an element in each one. -->
+      <ion-col *ngFor="let c of [1,1,1,1,1,1,1,1,1,1,1,1]; let i = index">
+        {{i + 1}}
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col *ngFor="let c of [1,1,1,1,1,1,1,1,1,1,1,1]; let i = index" size-lg="3" size-md="4" size-sm="6">
+        <!--size can customize amount of columns by screen size-->
+        <ion-card>
+          <ion-img src="../../../assets/shapes.svg"></ion-img>
+          <ion-card-header>
+            <ion-card-subtitle> Subtitle</ion-card-subtitle>
+            <ion-card-title>Title</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>These are the voyages of the Starship Enterprise. Its continuing mission, to explore strange
+            new worlds, to seek out new life and new civilizations, to boldly go where no one has gone before.
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-app>
+
+  <!-- split-pane shows more content in horizontal and bigger screens -->
+  <ion-split-pane contentId="principal" when="md">
+    <!-- when marks screen size-->
+
+    <ion-menu menuId="menuUno" side="start" type="overlay" contentId="principal">
+      <ion-header>
+        <ion-toolbar color="warning">
+          <ion-title>Menú principal</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+
+          <ion-menu-toggle autoHide="false" *ngFor="let c of componentes | async">
+            <ion-item [routerLink]="c.redirectTo">
+              <ion-icon slot="start" [name]="c.icon" color="warning"></ion-icon>
+              <ion-label> {{c.name}} </ion-label>
+
+            </ion-item>
+
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+
+
+    <ion-router-outlet id="principal"></ion-router-outlet>
+  </ion-split-pane>
+
+</ion-app>

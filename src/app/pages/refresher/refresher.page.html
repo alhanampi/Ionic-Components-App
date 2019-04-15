@@ -1,0 +1,20 @@
+<app-header titulo="refresher"></app-header>
+
+<ion-content>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <!-- doRefresh is drag function -->
+    <ion-refresher-content></ion-refresher-content>
+
+  </ion-refresher>
+
+  <h1 *ngIf="items.length === 0" class="animated fadeIn fast">Refrescar</h1>
+  <!-- if it is 0 shows the text, else, the list-->
+  <ion-list *ngIf="items.length > 0" class="animated fadeIn fast">
+    <!--animate classes-->
+    <ion-item *ngFor="let item of items; let i = index">
+      item {{i + 1 }}
+    </ion-item>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,48 @@
+<app-header titulo="input"></app-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Nombre: {{nombre || 'no hay nombre'}}</ion-label>
+      <!--loads input informacion. || prevents it from being empty. It doesn't need enter to start loading -->
+    </ion-list-header>
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label> <!-- floatingmakes the name small and over the input-->
+      <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+      <!--ngModel captures input value. FormsModule is not necessary-->
+    </ion-item>
+  </ion-list>
+
+  <form #formulario="ngForm" (ngSubmit)="onSubmitTemplate()">
+
+    <ion-list>
+
+      <ion-list-header>
+        <ion-label>Formulario Template: válido {{formulario.valid}}</ion-label>
+        <!--vecomes valid when all conditions are met-->
+      </ion-list-header>
+      <ion-item>
+        <ion-label position="floating">email</ion-label>
+        <ion-input type="email" name="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+          [(ngModel)]="usuario.email" required>
+        </ion-input>
+        <!--pattern checks if it is an email-->
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">password</ion-label>
+        <ion-input type="password" name="password" minlength=8 [(ngModel)]="usuario.password" required>
+        </ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-button expand=full type=submit color="tertiary" [disabled]="formulario.invalid">
+      <!--desabled in invalid forms-->
+      submit
+    </ion-button>
+
+  </form>
+
+</ion-content>

@@ -1,0 +1,24 @@
+<ion-menu menuId="menuUno" side="start" type="overlay" contentId="principal">
+  <!--contentId is the main ion-router-outlet. Without it it would not be possible to drag-->
+  <ion-header>
+    <ion-toolbar color="warning">
+      <ion-title>Menú principal</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+
+      <!-- to iterate menu components. Without async it would give an error-->
+      <ion-menu-toggle *ngFor="let c of componentes | async">
+        <!--toggle makes menu close when a component is opened-->
+
+        <ion-item [routerLink]="c.redirectTo">
+          <ion-icon slot="start" [name]="c.icon" color="warning"></ion-icon>
+          <ion-label> {{c.name}} </ion-label>
+
+        </ion-item>
+
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+</ion-menu>

@@ -1,0 +1,44 @@
+<app-header titulo="datetime"></app-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-list-header>
+
+      <ion-label>Fecha de nacimiento:</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <!--display format changes how values are shown. Value which ones are shown. CancelText personalizes cancel button, ngModel links to these enlaza a lo que está en el ts. It requires the toISOString. ionChange starts event. Event is the data that will go to the funcion-->
+
+      <ion-datetime slot="end" placeholder="fecha de nacimiento" display-format="YYYY MMMM DD" cancelText="cancelar!"
+        [ngModel]="fechaNacimiento.toISOString()" (ionChange)="cambioFecha($event)"></ion-datetime>
+    </ion-item>
+  </ion-list>
+
+  <ion-list-header>
+
+    <ion-label>Restricciones:</ion-label>
+  </ion-list-header>
+
+  <ion-item>
+    <ion-label>Min y max</ion-label>
+    <ion-datetime placeholder="yyyy-mm-dd" display-format="YYYY MMMM DD" min="2015-01-01" max="2015-12-31">
+
+    </ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Restringir años</ion-label>
+    <ion-datetime placeholder="Año" display-format="YYYY" min="2015" max="2025" value="2019">
+
+    </ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Años</ion-label>
+    <ion-datetime [pickerOptions]="customPickerOptions" [(ngModel)]="customDate">
+
+    </ion-datetime>
+  </ion-item>
+
+</ion-content>
